@@ -1,4 +1,4 @@
-# Copyright (c) 2020 Nastuzzi Samy
+# Copyright (c) 2025 Ahmad Othman
 
 import urllib.parse
 import requests
@@ -9,7 +9,7 @@ from src.functions import clear_thumbnails, save_thumbnail
 
 MAX_RESULTS = 10
 
-SEARCH_BASE_URL = "https://youtube.com/results?search_query="
+SEARCH_BASE_URL = "https://youtube.com/results?hl=en&gl=US&search_query="
 
 BASE_URL = "https://youtube.com"
 
@@ -47,10 +47,7 @@ class YoutubeSearch:
         if "videoRenderer" in item.keys():
           video_data = item["videoRenderer"]
           video_id = video_data.get("videoId", None)
-          print(
-              video_data.get("thumbnail", {})
-              .get("thumbnails", [{}])
-          )
+
           thumbnail = (
               video_data.get("thumbnail", {})
               .get("thumbnails", [{}])[0]
