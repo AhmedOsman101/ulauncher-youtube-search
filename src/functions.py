@@ -9,22 +9,22 @@ THUMBNAILS_DIR = EXTENSION_DIR + "/thumbnails/"
 
 
 def strip_list(elements):
-    return [element for element in elements if len(element.strip()) > 0]
+  return [element for element in elements if len(element.strip()) > 0]
 
 
 def clear_thumbnails():
-    files = glob.glob(THUMBNAILS_DIR + "*")
+  files = glob.glob(THUMBNAILS_DIR + "*")
 
-    for f in files:
-        os.remove(f)
+  for f in files:
+    os.remove(f)
 
 
 def save_thumbnail(url, video_id):
-    path = THUMBNAILS_DIR + video_id + ".png"
+  path = THUMBNAILS_DIR + video_id + ".png"
 
-    if not os.path.exists(THUMBNAILS_DIR):
-        os.makedirs(THUMBNAILS_DIR)
+  if not os.path.exists(THUMBNAILS_DIR):
+    os.makedirs(THUMBNAILS_DIR)
 
-    urllib.request.urlretrieve(url, path)
+  urllib.request.urlretrieve(url, path)
 
-    return path
+  return path
