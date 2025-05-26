@@ -47,6 +47,10 @@ class YoutubeSearch:
         if "videoRenderer" in item.keys():
           video_data = item["videoRenderer"]
           video_id = video_data.get("videoId", None)
+          print(
+              video_data.get("thumbnail", {})
+              .get("thumbnails", [{}])
+          )
           thumbnail = (
               video_data.get("thumbnail", {})
               .get("thumbnails", [{}])[0]
