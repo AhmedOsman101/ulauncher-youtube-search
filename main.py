@@ -1,3 +1,5 @@
+# Copyright (c) 2020 Nastuzzi Samy
+
 from ulauncher.api.client.Extension import Extension
 from ulauncher.api.client.EventListener import EventListener
 from ulauncher.api.shared.event import KeywordQueryEvent
@@ -22,11 +24,14 @@ class KeywordQueryEventListener(EventListener):
         if len(query.strip()) == 0:
             return RenderResultListAction(no_input_item())
 
-        params = strip_list(query.split(' '))            
+        params = strip_list(query.split(" "))
 
         search = YoutubeSearch(params)
 
-        if extension.preferences['show_thumbnails'] == 'true' and search.show_thumbnails is None:
+        if (
+            extension.preferences["show_thumbnails"] == "true"
+            and search.show_thumbnails is None
+        ):
             search.show_thumbnails = True
 
         if not search.has_query():
@@ -37,7 +42,11 @@ class KeywordQueryEventListener(EventListener):
         if not results:
             return RenderResultListAction(no_results_item())
 
-        return RenderResultListAction(generate_search_items(results, extension.preferences['description_template']))
+        return RenderResultListAction(
+            generate_search_items(
+                results, extension.preferences["description_template"]
+            )
+        )
 
 
 if __name__ == "__main__":

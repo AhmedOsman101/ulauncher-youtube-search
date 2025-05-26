@@ -1,3 +1,5 @@
+# Copyright (c) 2020 Nastuzzi Samy
+
 from ulauncher.api.shared.item.ExtensionResultItem import ExtensionResultItem
 from ulauncher.api.shared.action.CopyToClipboardAction import CopyToClipboardAction
 from ulauncher.api.shared.action.HideWindowAction import HideWindowAction
